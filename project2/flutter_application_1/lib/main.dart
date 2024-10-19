@@ -16,6 +16,7 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       // home: HomePage(),
       themeMode: ThemeMode.light,
       theme: ThemeData(primaryColor: Colors.deepPurple,fontFamily: GoogleFonts.lato().fontFamily),
@@ -23,7 +24,7 @@ class Myapp extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       routes: {
-        "/": (context) => login_Page(),
+        "/": (context) => HomePage(),
         MyRoutes.loginRoute: (context) => login_Page(),
         MyRoutes.homeRoute: (context) => HomePage(),
 
