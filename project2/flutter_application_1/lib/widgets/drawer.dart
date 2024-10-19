@@ -4,7 +4,7 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String ImageUrl = "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg";
-    var cupertinoIcons = CupertinoIcons;
+    // var cupertinoIcons = CupertinoIcons;
     return Drawer(
       child: Container(
         color: Colors.deepPurple.shade400,
