@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "id": 1234588,
+      "name": "iPhone 12 Pro",
+      "desc": "Apple iPhone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "image": "https://pngimg.com/image/96041"
+    }
+  ]
+}
