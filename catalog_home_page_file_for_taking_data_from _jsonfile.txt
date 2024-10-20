@@ -1,12 +1,96 @@
+// import 'dart:convert';
+
+import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+import 'package:flutter_application_1/models/catalog.dart';
+import 'package:flutter_application_1/widgets/drawer.dart';
+import 'package:flutter_application_1/widgets/item_widgit.dart'; // Correct widget filename
+
+class HomePage extends StatelessWidget {
+  // for st
+//   @override
+//   _HomePageState createState() => _HomePageState();
+// }
+
+// class _HomePageState extends State<HomePage> {
+  @override
+
+
+  // In this we directly yake data from catalog file
+  // void initState() {
+  //   super.initState();
+  //   loadData();
+  // }
+
+// 
+
+
+
+
+  // Load the data from the JSON file
+// loadData() async {
+//   await Future.delayed(
+//     Duration(seconds: 2)
+//   );
+//   final catalogJson = await rootBundle.loadString("assets/catalog.json");
+//   final decodeData = jsonDecode(catalogJson);
+//   var productData = decodeData["products"];
+  
+//   // Correct the map iteration
+//   CatalogModel.items = List.from(productData)
+//     .map<Item>((item) => Item.fromMap(item)) // Use 'item' instead of 'Item' as variable name
+//     .toList();
+  
+//   setState(() {}); 
+// }
+  @override
+  Widget build(BuildContext context) {
+    // Fallback if CatalogModel.items is empty
+    // final dummyList = CatalogModel.items.isEmpty
+    //     ? List.generate(50, (index) => CatalogModel.items[0])
+    //     : CatalogModel.items;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Catalog App",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.deepPurple,
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: (CatalogModel.items.isNotEmpty) ? ListView.builder(
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, index) {
+            return ItemWidgit(item: CatalogModel.items[index]); // Corrected widget name
+          },
+        )
+        :Center(
+          child: CircularProgressIndicator(),
+        )
+      ),
+      drawer: MyDrawer(),
+    );
+  }
+}
+
+
+
+catalog 
+
 class CatalogModel {
-  static final List<Item> items = [
+  static final items = [
     Item(
       id: 1234588,
       name: "iPhone 12 Pro",
       desc: "Apple iPhone 12th generation",
       price: 999,
       color: "#33505a",
-      image: "https://www.citypng.com/public/uploads/preview/gold-apple-iphone-12-pro-max-front-back-view-704081694682342sv7nulvewt.png" // Replace with a valid image URL
+      image: "https://pngimg.com/image/96041",
     ),
     Item(
       id: 1234589,
@@ -22,7 +106,7 @@ class CatalogModel {
       desc: "Google Pixel 6 with advanced AI",
       price: 699,
       color: "#ff9500",
-      image: "https://m.media-amazon.com/images/I/61YsYjlywtL.jpg",
+      image: "https://cdn.dxomark.com/wp-content/uploads/drafts/post-103489/Google-Pixel-6-featured-image-packshot-review-Recovered.jpg",
     ),
     Item(
       id: 1234591,
@@ -87,7 +171,6 @@ class CatalogModel {
       price: 599,
       color: "#ff0000",
       image: "https://fdn2.gsmarena.com/vv/bigpic/motorola-edge20-pro-.jpg",)
-    // Add more items if needed
   ];
 }
 
@@ -107,4 +190,31 @@ class Item {
     required this.color,
     required this.image,
   });
+// DIRECTLY TAKING DATA FROM CATALOG FILE BUT DESIGNING NOT WORKING IN MOBILE
+
+
+  // Factory constructor to create an Item from a map (decoding)
+  // factory Item.fromMap(Map<String, dynamic> map) {
+  //   return Item(
+  //     id: map['id'],
+  //     name: map['name'],
+  //     desc: map['desc'],
+  //     price: map['price'],
+  //     color: map['color'],
+  //     image: map['image'],
+  //   );
+  // }
+
+  // // Method to convert an Item into a map (encoding)
+  // Map<String, dynamic> toMap() {
+  //   return {
+  //     'id': id,
+  //     'name': name,
+  //     'desc': desc,
+  //     'price': price,
+  //     'color': color,
+  //     'image': image,
+  //   };
+  // }
 }
+

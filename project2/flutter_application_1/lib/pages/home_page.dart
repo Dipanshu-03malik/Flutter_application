@@ -10,7 +10,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     
     // inc list of mobile
-    final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
+    // final dummyList = List.generate(50, (index) => CatalogModel.items[0]);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -25,10 +25,10 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
-          itemCount: dummyList.length,
+          itemCount: CatalogModel.items.length,
           itemBuilder: (context, index) {
             return ItemWidgit(
-              item: dummyList[index]);
+              item: CatalogModel.items[index]);
           },
         ),
       ),
